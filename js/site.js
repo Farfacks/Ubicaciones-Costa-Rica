@@ -148,7 +148,7 @@ document.getElementById("btnBuscar").addEventListener("click", async function ()
         const longitudCopiar = Math.trunc(coordenadas.longitud * 1000000) / 1000000;
 
         //Variable del texto copiado
-        const textoCopiar = `${latitudCopiar},${longitudCopiar},"${informacion.provincia}, ${informacion.canton} - ${informacion.distrito}",`;
+        const textoCopiar = `,${latitudCopiar},${longitudCopiar},"${informacion.provincia}, ${informacion.canton} - ${informacion.distrito}",`;
 
         if (marcadorActual !== null) {
             mapa.removeLayer(marcadorActual);
