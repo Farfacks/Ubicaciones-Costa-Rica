@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ubicaciones Costa Rica</title>
+
+    <link rel="stylesheet" href="css/site.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+
+    <div class="mapa-container">
+
+        <div class="barra-busqueda">
+
+            <input type="text"
+                   id="coordenadas"
+                   placeholder="Ejemplo: 9.961063, -84.127953">
+
+            <button id="btnBuscar">
+                Buscar
+            </button>
+
+        </div>
+
+        <div id="map"></div>
+
+    </div>
+
+    <div id="modalError" class="modal-overlay">
+
+        <div class="modal-contenido">
+
+            <button id="cerrarModal" class="modal-cerrar">
+                &times;
+            </button>
+
+            <h3>⚠️ Coordenadas no válidas</h3>
+
+            <p id="mensajeModal">
+                Las coordenadas indicadas están fuera de Costa Rica.
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+
+    <script src="js/site.js"></script>
+
+</body>
+</html>
