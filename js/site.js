@@ -304,9 +304,7 @@ document.getElementById("btnCopiarMensaje").addEventListener("click", function (
 
     // Texto temporal
     const texto = `Buenos días ${nombre}
-
 Tenemos un paquete de ${librasNumero}-${librasMaximas} libras... aproximadamente serían $${precioMinimo}-${precioMaximo} dólares...
-
 Vía marítima serían ${piesCubicosNumero} pies... con un valor de $${valorPiesCubicos} dólares...`;
 
 
