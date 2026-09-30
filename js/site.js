@@ -333,10 +333,12 @@ document.getElementById("btnCopiarMensaje").addEventListener("click", function (
 
 
     // Texto temporal
-    const texto = `Buenos días ${nombre}
-Tenemos un paquete de ${librasNumero}-${librasMaximas} libras... aproximadamente serían $${precioMinimo}-${precioMaximo} dólares...
-Vía marítima serían ${piesCubicosNumero} pies... con un valor de $${valorPiesCubicos} dólares...`;
+    const texto = `Buenas ${nombre}
+Nos consultan en Miami sobre este paquete a tu nombre, ¿Cómo procedemos con el envío?
+Aéreo: ${librasNumero}-${librasMaximas} libras aproximadamente, $${precioMinimo}-${precioMaximo} dólares (tarda entre 08 a 10 *días hábiles* en llegar a CR)
+Marítimo: ${piesCubicosNumero} pies cúbicos, $${valorPiesCubicos} dólares (tarda entre 22 a 30 *días naturales* en llegar a CR)
 
+*Aun NO hay que cancelar ningún monto, esta notificación es meramente una consulta para el método del envío debido a que en Miami validaron que hay una diferencia considerable en el monto (siendo más económico el envío marítimo). Adicionalmente, lo indicado en la pre-alerta es para efectos de aduanas, por lo cual no es visible para los compañeros en Miami*`;
 
     // Copiar al portapapeles
     navigator.clipboard.writeText(texto)
