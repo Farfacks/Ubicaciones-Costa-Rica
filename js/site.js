@@ -181,6 +181,36 @@ document.getElementById("btnBuscar").addEventListener("click", async function ()
         document.getElementById("btnCopiar").addEventListener("click", function () {
 
             navigator.clipboard.writeText(textoCopiar);
+                .then(function () {
+
+                const mensajeCopiado = document.getElementById("mensajeCopiado");
+
+                mensajeCopiado.textContent = "Texto copiado";
+                mensajeCopiado.style.display = "block";
+
+                setTimeout(function () {
+
+                    mensajeCopiado.style.display = "none";
+
+                }, 2000);
+
+            })
+            .catch(function (error) {
+
+                console.error("No se pudo copiar el texto:", error);
+    
+                const mensajeCopiado = document.getElementById("mensajeCopiado");
+    
+                mensajeCopiado.textContent = "Error: No se pudo copiar";
+                mensajeCopiado.style.display = "block";
+    
+                setTimeout(function () {
+
+                    mensajeCopiado.style.display = "none";
+
+                }, 2000);
+
+            });
 
         });
 
