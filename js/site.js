@@ -219,3 +219,140 @@ document.getElementById("modalError").addEventListener("click", function (evento
     }
 
 });
+
+// ========================================
+// GENERADOR DE TEXTO
+// ========================================
+
+const nombreInput = document.getElementById("nombre");
+const librasInput = document.getElementById("libras");
+const piesInput = document.getElementById("piesCubicos");
+
+
+// Validación del nombre mientras se escribe
+nombreInput.addEventListener("input", function () {
+
+    // Eliminar espacios al inicio
+    this.value = this.value.replace(/^\s+/, "");
+
+    // Eliminar espacios al final
+    this.value = this.value.replace(/\s+$/, "");
+
+});
+
+
+// Validación de libras mientras se escribe
+librasInput.addEventListener("input", function () {
+
+    // Permitir únicamente números
+    this.value = this.value.replace(/\D/g, "");
+
+});
+
+
+// Validación de pies cúbicos mientras se escribe
+piesInput.addEventListener("input", function () {
+
+    // Permitir únicamente números
+    this.value = this.value.replace(/\D/g, "");
+
+});
+
+
+// Generar texto
+document.getElementById("btnCopiarMensaje").addEventListener("click", function () {
+
+    const nombre = nombreInput.value;
+    const libras = librasInput.value;
+    const piesCubicos = piesInput.value;
+
+    const mensajeCopiado = document.getElementById("mensajeCopiado");
+
+    // Ocultar cualquier mensaje anterior
+    mensajeCopiado.style.display = "none";
+
+
+    // Validar campos
+    if (nombre === "" || libras === "" || piesCubicos === "") {
+
+        mensajeCopiado.textContent = "Error: Llene los datos";
+        mensajeCopiado.style.display = "block";
+
+        setTimeout(function () {
+
+            mensajeCopiado.style.display = "none";
+
+        }, 2000);
+
+        return;
+    }
+
+
+    // Convertir valores a números
+    const librasNumero = Number(libras);
+    const piesCubicosNumero = Number(piesCubicos);
+
+
+    // Cálculos
+    const librasMaximas = librasNumero + 1;
+
+    const precioMinimo = librasNumero * 8;
+    const precioMaximo = precioMinimo + 8;
+
+    const valorPiesCubicos = piesCubicosNumero * 32;
+
+
+    // Texto temporal
+    const texto = `Buenos días ${nombre}
+
+Tenemos un paquete de ${librasNumero}-${librasMaximas} libras... aproximadamente serían $${precioMinimo}-${precioMaximo} dólares...
+
+Vía marítima serían ${piesCubicosNumero} pies... con un valor de $${valorPiesCubicos} dólares...`;
+
+
+    // Copiar al portapapeles
+    navigator.clipboard.writeText(texto)
+
+        .then(function () {
+
+            mensajeCopiado.textContent = "Texto copiado";
+            mensajeCopiado.style.display = "block";
+
+            setTimeout(function () {
+
+                mensajeCopiado.style.display = "none";
+
+            }, 2000);
+
+        })
+
+        .catch(function (error) {
+
+            console.error("No se pudo copiar el texto:", error);
+
+            mensajeCopiado.textContent = "Error: No se pudo copiar";
+            mensajeCopiado.style.display = "block";
+
+            setTimeout(function () {
+
+                mensajeCopiado.style.display = "none";
+
+            }, 2000);
+
+        });
+
+});
+
+
+// Limpiar campos
+document.getElementById("btnLimpiarMensaje").addEventListener("click", function () {
+
+    nombreInput.value = "";
+    librasInput.value = "";
+    piesInput.value = "";
+
+    document.getElementById("mensajeCopiado").style.display = "none";
+
+    nombreInput.focus();
+
+});
