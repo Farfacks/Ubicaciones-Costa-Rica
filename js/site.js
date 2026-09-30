@@ -180,7 +180,7 @@ document.getElementById("btnBuscar").addEventListener("click", async function ()
 
         document.getElementById("btnCopiar").addEventListener("click", function () {
 
-            navigator.clipboard.writeText(textoCopiar);
+            navigator.clipboard.writeText(textoCopiar)
                 .then(function () {
 
                 const mensajeCopiado = document.getElementById("mensajeCopiado");
